@@ -10,7 +10,7 @@ export default function Signup({ onAuth }) {
   const submit = async (e) => {
     e.preventDefault();
     try {
-      const res = await API.post("/auth/register", form);
+      const res = await API.post("/register", form); // <-- fixed here
       localStorage.setItem("token", res.data.token);
       localStorage.setItem("user", JSON.stringify(res.data.user));
       onAuth && onAuth(res.data.user);
